@@ -5,10 +5,10 @@ down:
 
 
 gateway:
-	cd api-gateway && go run .
+	cd services/api-gateway && go run ./cmd
 
 user:
-	cd user-service && go run .
+	cd services/user-service && go run .
 
 order:
-	cd order-service && go run .
+	cd services/order-service && go run .
