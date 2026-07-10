@@ -11,7 +11,7 @@ import (
 
 const port = ":8082"
 
-const dsn = "postgresql://user:password@localhost:5432/mydb?sslmode=disable"
+const dsn = "postgresql://admin:mypassword@localhost:5432/coffee_shop_db?sslmode=disable"
 
 type Application struct {
 	config Config

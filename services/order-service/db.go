@@ -9,6 +9,8 @@ import (
 	_ "github.com/lib/pq"
 )
 
+
+
 func NewPostgres(ctx context.Context, dsn string) (*sql.DB, error) {
 
 	db, err := sql.Open("postgres", dsn)

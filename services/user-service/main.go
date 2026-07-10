@@ -9,7 +9,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-const dsn = "postgresql://user:password@localhost:5432/mydb?sslmode=disable"
+const dsn = "postgresql://admin:mypassword@localhost:5432/coffee_shop_db?sslmode=disable"
 const port = ":8081"
 
 
