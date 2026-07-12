@@ -6,7 +6,7 @@ down:
 gateway:
 	cd services/api-gateway && go run ./cmd
 
-user:4
+user:
 	cd services/user-service && go run .
 
 order:

@@ -15,7 +15,8 @@ const port = ":8081"
 
 type Application struct {
 	config Config
-	db    *sql.DB
+	db     *sql.DB
+	User   UserRepository
 }
 
 type Config struct {
@@ -33,18 +34,23 @@ func main() {
 
 	r := chi.NewRouter()
 
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("User service is running..."))
-	})
-
 	cfg := Config{
 		addr: port,
 	}
 
 	app := &Application{
 		config: cfg,
-		db: db,
+		db:     db,
+		User:   NewUserRepo(db),
 	}
+
+	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("User service is running..."))
+	})
+
+	r.Post("/register", app.register)
+	r.Post("/login", app.login)
+	r.Post("/logout", app.logout)
 
 	log.Println("User service started at port:", port)
 	err = http.ListenAndServe(app.config.addr, r)
